@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>{{title}}</title></head><body>
+<nav><a href="/">Home</a><a href="/register">Register Phone</a><a href="/search">Search</a></nav>
+<h1>{{title}}</h1>
+{% for p in phones %}
+<div class="card">
+<a href="/phone/{{p.id}}"><strong>{{p.brand}} {{p.model}}</strong></a> — IMEI: {{p.imei}}
+<span class="status {{p.status}}">{{p.status}}</span>
+</div>
+{% else %}<p>None.</p>{% endfor %}
+</body></html>
