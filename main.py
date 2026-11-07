@@ -27,17 +27,7 @@ def register_phone(
     serial_number: str = Form(""),
     brand: str = Form(""),
     model: str = Form(""),
-    color: str = Form(""),
     storage: str = Form(""),
-    purchase_date: str = Form(""),
-    store_name: str = Form(""),
-    store_location: str = Form(""),
-    price: str = Form(""),
-    receipt_number: str = Form(""),
-    warranty_expiry: str = Form(""),
-    owner_name: str = Form(""),
-    owner_phone: str = Form(""),
-    owner_email: str = Form(""),
     notes: str = Form(""),
     db: Session = Depends(get_db)
 ):
@@ -48,10 +38,7 @@ def register_phone(
         raise HTTPException(status_code=400, detail="Phone already registered")
     phone = Phone(
         imei=imei, serial_number=serial_number, brand=brand, model=model,
-        color=color, storage=storage, purchase_date=purchase_date, store_name=store_name,
-        store_location=store_location, price=price, receipt_number=receipt_number,
-        warranty_expiry=warranty_expiry, owner_name=owner_name, owner_phone=owner_phone,
-        owner_email=owner_email, notes=notes, status="registered"
+        storage=storage, notes=notes, status="registered"
     )
     db.add(phone)
     db.commit()

@@ -7,23 +7,18 @@
 <h3>Device Details</h3>
 <p><b>IMEI:</b> {{phone.imei}}</p>
 <p><b>Serial:</b> {{phone.serial_number or '—'}}</p>
-<p><b>Color:</b> {{phone.color or '—'}}</p>
+<p><b>Brand:</b> {{phone.brand or '—'}}</p>
+<p><b>Model:</b> {{phone.model or '—'}}</p>
 <p><b>Storage:</b> {{phone.storage or '—'}}</p>
-<h3>Receipt / Purchase</h3>
-<p><b>Purchase Date:</b> {{phone.purchase_date or '—'}}</p>
-<p><b>Store:</b> {{phone.store_name or '—'}} ({{phone.store_location or '—'}})</p>
-<p><b>Price:</b> {{phone.price or '—'}}</p>
-<p><b>Receipt #:</b> {{phone.receipt_number or '—'}}</p>
-<p><b>Warranty Expiry:</b> {{phone.warranty_expiry or '—'}}</p>
-<h3>Owner</h3>
-<p><b>Name:</b> {{phone.owner_name or '—'}}</p>
-<p><b>Phone:</b> {{phone.owner_phone or '—'}}</p>
-<p><b>Email:</b> {{phone.owner_email or '—'}}</p>
 <p><b>Notes:</b> {{phone.notes or '—'}}</p>
 </div>
 <div class="card">
+<h3>Tools</h3>
+<a href="https://www.imei.info/?imei={{phone.imei}}" target="_blank"><button type="button">Check IMEI Status (imei.info)</button></a>
+<a href="https://www.imeicheck.com/?imei={{phone.imei}}" target="_blank"><button type="button">Check IMEI (imeicheck.com)</button></a>
+</div>
+<div class="card">
 <h3>Report Lost / Found</h3>
-<form method="post" action="/report/{{phone.id}}">
 <select name="report_type"><option value="lost">Lost</option><option value="found">Found</option></select>
 <input name="reporter_name" placeholder="Your name">
 <input name="reporter_phone" placeholder="Your phone">
